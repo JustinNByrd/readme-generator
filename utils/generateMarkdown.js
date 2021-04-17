@@ -16,6 +16,7 @@ function generateMarkdown(data) {
     markdown = `# ${data.title}\n\n`;
     markdown += `${data.description}\n\n`;
     markdown += `## Installation\n\n${data.installation}\n\n`;
+    markdown += `## Usage\n\n${data.usage}\n\n`;
     return markdown;
 }
 
