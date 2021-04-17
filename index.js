@@ -17,8 +17,13 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter a description of your project.',
+        message: 'Please enter a description of your project:',
         name: 'description'
+    },
+    {
+        type: 'input',
+        message: 'Please enter the installation instructions:',
+        name: 'installation'
     }
 ];
 
@@ -35,7 +40,7 @@ function init() {
         .prompt(questions)
         .then( (response) => {
             const generatedMarkdown = generateMarkdown(response);
-            console.log(generatedMarkdown);
+            // console.log(generatedMarkdown);
             writeToFile(outputFile, generatedMarkdown);
             }
         );
