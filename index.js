@@ -2,13 +2,18 @@
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// array of questions to pass to inquirer
 const questions = [
     {
         type: 'input',
         message: 'What is the title of your project?',
-        name: 'title',
+        name: 'title'
     },
+    {
+        type: 'input',
+        message: 'Please enter a description of your project.',
+        name: 'description'
+    }
 ];
 
 // TODO: Create a function to write README file
@@ -19,7 +24,8 @@ function init() {
     inquirer
         .prompt(questions)
         .then( (response) => {
-            console.log(`your title is: ${response.title}`);
+            const generatedMarkdown = generateMarkdown(response);
+            console.log(generatedMarkdown);
             }
         );
 }
