@@ -66,6 +66,17 @@ function renderLicenseSection(license, userName) {
     return licenseText;
 }
 
+function generateToc(hasLicense) {
+    var markdown = '## Table of Contents\n\n';
+    markdown += '[Installation](#installation)\n\n';
+    markdown += '[Usage](#usage)\n\n';
+    if (hasLicense) markdown += '[License](#license)\n\n';
+    markdown += '[How to Contribute](#how-to-contribute)\n\n';
+    markdown += '[Tests](#tests)\n\n';
+    markdown += '[Questions](#questions)\n\n';
+    return markdown;
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
     var markdown = '';
@@ -78,6 +89,7 @@ function generateMarkdown(data) {
     }
     markdown += `# ${data.title}\n\n`;
     markdown += `${data.description}\n\n`;
+    markdown += generateToc(hasLicense);
     markdown += `## Installation\n\n${data.installation}\n\n`;
     markdown += `## Usage\n\n${data.usage}\n\n`;
     if (hasLicense) markdown += licenseText;
