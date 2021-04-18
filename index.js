@@ -41,6 +41,16 @@ const questions = [
         choices: ["Apache 2.0", "BSD 3-Clause", "GNU General Public 2.0", "GNU General Public 3.0", "ISC", "MIT", "NONE"],
         name: "license"
     },
+    {
+        type: "input",
+        message: "How can others contribute to this project?",
+        name: "contribute"
+    },
+    {
+        type: "input",
+        message: "How can users test this application?",
+        name: "tests"
+    },
 ];
 
 // write generated markdown to file
