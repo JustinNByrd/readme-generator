@@ -1,10 +1,21 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseBadge(license) {
+    switch (license) {
+        case "Apache 2.0":
+            return '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)\n\n';
+        case "BSD 3-Clause":
+            return '[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)\n\n';
+        case "GNU General Public 2.0":
+            return '[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)\n\n';
+        case "GNU General Public 3.0":
+            return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)\n\n';
+        case "ISC":
+            return '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)\n\n';
+        case "MIT":
+            return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n\n';
+    }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -62,8 +73,9 @@ function generateMarkdown(data) {
     if (data.license != 'NONE') {
         hasLicense = true;
         licenseText = renderLicenseSection(data.license, data.userName);
+        markdown = renderLicenseBadge(data.license);
     }
-    markdown = `# ${data.title}\n\n`;
+    markdown += `# ${data.title}\n\n`;
     markdown += `${data.description}\n\n`;
     markdown += `## Installation\n\n${data.installation}\n\n`;
     markdown += `## Usage\n\n${data.usage}\n\n`;
