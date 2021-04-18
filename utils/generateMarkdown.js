@@ -48,7 +48,7 @@ function renderLicenseSection(license, userName) {
             licenseText += `Copyright &copy; ${currentYear} ${userName}\n\n`;
             licenseText += 'This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\n';
             licenseText += 'This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\n';
-            licenseText += 'You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).'
+            licenseText += 'You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\n\n';
             break;
         case "ISC":
             licenseText += 'Copyright &copy; 2004-2013 by Internet Systems Consortium, Inc. (“ISC”)\n';
@@ -60,7 +60,7 @@ function renderLicenseSection(license, userName) {
             licenseText += `Copyright &copy; ${currentYear} ${userName}\n\n`;
             licenseText += 'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\n';
             licenseText += 'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\n';
-            licenseText += 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.';
+            licenseText += 'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n';
             break;
     }
     return licenseText;
@@ -83,7 +83,7 @@ function generateMarkdown(data) {
     if (hasLicense) markdown += licenseText;
     markdown += `## How To Contribute\n\n${data.contribute}\n\n`;
     markdown += `## Tests\n\n${data.tests}\n\n`;
-    
+    markdown += `## Questions\n\nIf you have any questions, you can reach me at [email](mailto:${data.email}) or [gitHub](https://github.com/${data.gitHubUserName})`;
     return markdown;
 }
 
