@@ -1,4 +1,4 @@
-// include the inquirer and filesystem packages and generateMarkdown
+// include the inquirer and filesystem packages
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -10,6 +10,11 @@ const outputFile = './output/README.md';
 
 // array of questions to pass to inquirer
 const questions = [
+    {
+        type: 'input',
+        message: 'What is your name?',
+        name: 'userName'
+    },
     {
         type: 'input',
         message: 'What is the title of your project?',
@@ -29,7 +34,13 @@ const questions = [
         type: 'input',
         message: 'Please enter the usage instructions:',
         name: 'usage'
-    }
+    },
+    {
+        type: "list",
+        message: "Choose your license:",
+        choices: ["Apache 2.0", "BSD 3-Clause", "GNU General Public 2.0", "GNU General Public 3.0", "ISC", "MIT", "NONE"],
+        name: "license"
+    },
 ];
 
 // write generated markdown to file
