@@ -1,0 +1,1 @@
+Please run node index.js in the parent directory to generate a README.md file.
