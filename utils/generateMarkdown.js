@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Generate the markdown for the badge of the chosen license. Called from generateMarkdown()
 function renderLicenseBadge(license) {
     switch (license) {
         case "Apache 2.0":
@@ -17,8 +16,7 @@ function renderLicenseBadge(license) {
     }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Generate the markdown for the License section. Called from generateMarkdown()
 function renderLicenseSection(license, userName) {
     var d = new Date();
     var currentYear = d.getFullYear();
@@ -66,10 +64,12 @@ function renderLicenseSection(license, userName) {
     return licenseText;
 }
 
+// Generate the Table of Contents markdown. Called from generateMarkdown()
 function generateToc(hasLicense) {
     var markdown = '## Table of Contents\n\n';
     markdown += '[Installation](#installation)\n\n';
     markdown += '[Usage](#usage)\n\n';
+    // only add License if one was chosen
     if (hasLicense) markdown += '[License](#license)\n\n';
     markdown += '[How to Contribute](#how-to-contribute)\n\n';
     markdown += '[Tests](#tests)\n\n';
@@ -77,21 +77,24 @@ function generateToc(hasLicense) {
     return markdown;
 }
 
-// TODO: Create a function to generate markdown for README
+// main function called to generate markdown. Called from init()
 function generateMarkdown(data) {
     var markdown = '';
     var licenseText;
     var hasLicense = false;
+    // if a license was chosen, call functions to render badge and license section generator
     if (data.license != 'NONE') {
         hasLicense = true;
         licenseText = renderLicenseSection(data.license, data.userName);
         markdown += renderLicenseBadge(data.license);
     }
+    // add sections to markdown
     markdown += `# ${data.title}\n\n`;
     markdown += `${data.description}\n\n`;
     markdown += generateToc(hasLicense);
     markdown += `## Installation\n\n${data.installation}\n\n`;
     markdown += `## Usage\n\n${data.usage}\n\n`;
+    // only add license section if one was chosen
     if (hasLicense) markdown += licenseText;
     markdown += `## How To Contribute\n\n${data.contribute}\n\n`;
     markdown += `## Tests\n\n${data.tests}\n\n`;
@@ -99,4 +102,5 @@ function generateMarkdown(data) {
     return markdown;
 }
 
+// export to make usable in index.js
 module.exports = generateMarkdown;
