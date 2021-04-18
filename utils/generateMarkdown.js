@@ -82,6 +82,8 @@ function generateMarkdown(data) {
     markdown += `## Usage\n\n${data.usage}\n\n`;
     if (hasLicense) markdown += licenseText;
     markdown += `## How To Contribute\n\n${data.contribute}\n\n`;
+    markdown += `## Tests\n\n${data.tests}\n\n`;
+    
     return markdown;
 }
 
